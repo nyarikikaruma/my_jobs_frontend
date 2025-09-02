@@ -103,7 +103,7 @@ export const useJobsStore = defineStore('jobs', {
         if (search) params.append('search', search)
         if (category) params.append('category', category)
         
-        const { data } = await axios.get(`http://62.171.190.239/api/jobs?${params}`)
+        const { data } = await axios.get(`https://62.171.190.239/api/jobs?${params}`)
         
         // Update jobs and pagination data
         this.jobs = data.data
@@ -129,7 +129,7 @@ export const useJobsStore = defineStore('jobs', {
     // Fetch a single job by ID (useful if not in current jobs list)
     async fetchJobById(id) {
       try {
-        const { data } = await axios.get(`http://62.171.190.239/api/jobs/${id}`)
+        const { data } = await axios.get(`https://62.171.190.239/api/jobs/${id}`)
         
         // Add or update job in the jobs array
         const existingIndex = this.jobs.findIndex(job => job.id == id)
@@ -153,7 +153,7 @@ export const useJobsStore = defineStore('jobs', {
         this.deleting.push(id)
         
         // Make API call to delete the job
-        await axios.delete(`http://62.171.190.239/api/admin/delete/${id}`, {
+        await axios.delete(`https://62.171.190.239/api/admin/delete/${id}`, {
           headers: {
             'Authorization': `Bearer ${localStorage.getItem('adminAuthToken')}`,
             'Content-Type': 'application/json'

@@ -294,7 +294,7 @@ import axios from "axios";
 import { NuxtLink } from "#components";
 
 // Base URL for the API
-const API_BASE_URL = "http://62.171.190.239/api";
+const API_BASE_URL = "https://62.171.190.239/api";
 
 // State management
 const activeTab = ref("login");

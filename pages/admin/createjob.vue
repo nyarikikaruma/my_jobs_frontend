@@ -380,7 +380,7 @@ const submitJob = async () => {
 
     // Make API call to Laravel backend
     const token = localStorage.getItem("adminAuthToken");
-    const response = await axios.post('http://127.0.0.1:8000/api/admin/jobs', jobData, {
+    const response = await axios.post('http://62.171.190.239/api/admin/jobs', jobData, {
         headers: {
         'Authorization': `Bearer ${token}`,
         'Content-Type': 'application/json',

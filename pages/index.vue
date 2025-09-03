@@ -360,6 +360,22 @@
 import { computed, onMounted } from 'vue'
 import { useJobsStore } from '~/stores/jobs'
 
+useHead({
+  title: "Kenya Job Listings | Find & Post Jobs Easily",
+  meta: [
+    { name: "description", content: "A modern job board platform to browse, search, and post jobs across Kenya. Find your next opportunity today." },
+    { name: "keywords", content: "jobs in Kenya, job listings, post jobs, job board, employment opportunities" },
+    { name: "author", content: "My Jobs" },
+    { property: "og:title", content: "Kenya Job Listings | My Jobs" },
+    { property: "og:description", content: "A job posting platform where admins post jobs and seekers explore opportunities easily." },
+    { property: "og:url", content: "https://my-jobs-frontend.vercel.app" },
+    { property: "og:type", content: "website" }
+  ],
+  link: [
+    { rel: "canonical", href: "https://my-jobs-frontend.vercel.app" }
+  ]
+});
+
 // Use the jobs store
 const jobsStore = useJobsStore()
 
@@ -521,10 +537,8 @@ let isAdmin = ref(false)
 onMounted(() => {
   const token = localStorage.getItem("adminAuthToken")
   if (token !== null && token !== "") {
-    console.log('There is token')
     isAdmin.value = true
   }
-    console.log('There is no token')
 
   jobsStore.fetchJobs()
 })

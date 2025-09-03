@@ -5,5 +5,14 @@ export default defineNuxtConfig({
    modules: [
      '@nuxtjs/tailwindcss',
      '@pinia/nuxt'
-  ]
+  ],
+   nitro: {
+    devProxy: {
+      '/api': {
+        target: 'https://62.171.190.239',
+        changeOrigin: true,
+        secure: false, // Accept self-signed SSL certificates
+      },
+    },
+  },
 })
